@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>募集一覧｜応募フォーム連携サンプル</title>
+  </head>
+  <body>
+    <main class="l-container">
+      <header class="p-intro">
+        <p class="p-intro__label">公開用サンプル</p>
+        <h1 class="p-intro__title">募集一覧</h1>
+        <p class="p-intro__note">架空の募集データです。実在の求人ではありません。</p>
+      </header>
+
+      <div class="p-jobs js-jobs-view" data-view="list" data-jobs-src="data/jobs.json">
+        <p role="status">募集情報を読み込んでいます…</p>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

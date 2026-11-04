@@ -1,0 +1,54 @@
+@use 'global' as *;
+
+// 募集一覧と、一覧・詳細で共通の操作部分
+.p-jobs {
+  &__list {
+    display: grid;
+    gap: spacing(4);
+    margin: 0 0 spacing(6);
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    padding: spacing(4);
+    border: 1px solid $color-border;
+    border-radius: $radius-large;
+  }
+
+  &__name {
+    margin: 0 0 spacing(2);
+    font-size: rem(18);
+  }
+
+  &__status {
+    margin-left: spacing(2);
+    padding: 0 spacing(2);
+    border: 1px solid $color-muted;
+    border-radius: $radius;
+    color: $color-muted;
+    font-size: rem(12);
+    font-weight: 400;
+    vertical-align: middle;
+  }
+
+  &__summary {
+    margin: 0 0 spacing(3);
+  }
+
+  &__closed-note {
+    margin: 0 0 spacing(3);
+    font-size: rem(14);
+    color: $color-muted;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacing(2);
+  }
+
+  &__entry-link {
+    font-size: rem(14);
+  }
+}

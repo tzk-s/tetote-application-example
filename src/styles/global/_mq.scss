@@ -1,0 +1,20 @@
+@use 'sass:map';
+
+// ブレークポイント（px）。このサンプルではスマートフォンとそれ以外の 2 段階だけ
+$breakpoints: (
+  s: 480,
+);
+
+// 指定幅以下（スマートフォン向けの上書き）
+@mixin mq-down($breakpoint: s) {
+  @media (max-width: #{map.get($breakpoints, $breakpoint)}px) {
+    @content;
+  }
+}
+
+// 指定幅より広い
+@mixin mq-up($breakpoint: s) {
+  @media (min-width: #{map.get($breakpoints, $breakpoint) + 1}px) {
+    @content;
+  }
+}

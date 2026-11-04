@@ -1,0 +1,23 @@
+@use 'global' as *;
+
+// 要素セレクタだけで書く土台。クラスに依存するスタイルはここに置かない。
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: $color-white;
+  color: $color-text;
+  font-family: $font-family;
+  line-height: $line-height;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}

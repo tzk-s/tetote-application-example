@@ -1,0 +1,9 @@
+// 画面には出さず、スクリーンリーダーには読ませる（見えない職種名の補足など）
+.u-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

@@ -1,0 +1,9 @@
+@use 'color' as *;
+
+// キーボード操作時だけ見えるフォーカス表示（マウス操作では出さない）
+@mixin focus-ring($width: 2px, $color: $color-accent) {
+  &:focus-visible {
+    outline: $width solid $color;
+    outline-offset: 2px;
+  }
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>応募フォーム｜応募フォーム連携サンプル</title>
+  </head>
+  <body>
+    <main class="l-container">
+      <header class="p-intro">
+        <p class="p-intro__label">公開用サンプル</p>
+        <h1 class="p-intro__title">応募フォーム</h1>
+        <p class="p-intro__note">送信先はブラウザー内のモックです。入力内容はどこにも送信・保存されません。</p>
+        <p class="p-intro__back"><a href="index.html">募集一覧へ戻る</a></p>
+      </header>
+
+      <!-- data-timeout-ms: 送信の待ち時間の上限。元の実装は 20 秒。確認しやすいよう、このページでは 8 秒にしている -->
+      <div class="p-entry js-entry" data-jobs-src="data/jobs.json" data-endpoint="/mock/entry" data-timeout-ms="8000">
+        <p class="js-entry-loading" role="status">募集情報を読み込んでいます…</p>
+
+        <form class="p-entry__form js-entry-form" action="#" novalidate hidden>
+          <div class="p-entry__notice js-entry-job-notice" role="status" hidden>
+            <p class="p-entry__notice-text js-entry-job-notice-text"></p>
+            <button type="button" class="c-button c-button--secondary js-entry-job-focus">希望職種を選び直す</button>
+          </div>
+
+          <p class="p-entry__required-note"><span class="c-required">必須</span>はすべて入力が必要な項目です。</p>
+
+          <div class="c-form-field">
+            <label class="c-form-field__label" for="name">お名前 <span class="c-required">必須</span></label>
+            <input id="name" name="name" class="c-form-field__control" autocomplete="name" maxlength="50" aria-invalid="false" aria-describedby="name-error" />
+            <p class="c-form-field__error" id="name-error" hidden></p>
+          </div>
+
+          <div class="c-form-field">
+            <label class="c-form-field__label" for="email">メールアドレス <span class="c-required">必須</span></label>
+            <input id="email" name="email" type="email" class="c-form-field__control" autocomplete="email" inputmode="email" aria-invalid="false" aria-describedby="email-hint email-error" />
+            <p class="c-form-field__hint" id="email-hint">例：name@example.com（実在のアドレスは入力しないでください）</p>
+            <p class="c-form-field__error" id="email-error" hidden></p>
+          </div>
+
+          <fieldset class="c-form-field c-form-field--group">
+            <legend class="c-form-field__label">希望職種 <span class="c-required">必須</span></legend>
+            <div class="c-form-field__choices js-entry-job-options"></div>
+            <p class="c-form-field__error" id="job-error" hidden></p>
+          </fieldset>
+
+          <div class="c-form-field">
+            <label class="c-form-field__label" for="pr">自己PR <span class="c-required">必須</span></label>
+            <textarea id="pr" name="pr" class="c-form-field__control" rows="5" maxlength="2000" aria-invalid="false" aria-describedby="pr-hint pr-error"></textarea>
+            <p class="c-form-field__hint" id="pr-hint">2000 文字以内</p>
+            <p class="c-form-field__error" id="pr-error" hidden></p>
+          </div>
+
+          <input type="hidden" name="submission-id" value="" />
+
+          <p class="p-entry__submit-error js-entry-submit-error" role="alert" hidden></p>
+          <p class="p-entry__status js-entry-status" role="status" hidden></p>
+          <button type="submit" class="c-button p-entry__submit js-entry-submit">送信する</button>
+        </form>
+
+        <section class="p-entry__complete js-entry-complete" aria-labelledby="complete-heading" hidden>
+          <h2 class="p-entry__complete-heading js-entry-complete-heading" id="complete-heading" tabindex="-1">応募を受け付けました</h2>
+          <p>このサンプルでは、モックの送信先が受け付けただけです。メールは送信されていません。</p>
+          <p><a href="index.html">募集一覧へ戻る</a></p>
+        </section>
+      </div>
+
+      <aside class="p-mock js-mock" aria-labelledby="mock-heading">
+        <h2 class="p-mock__heading" id="mock-heading">確認用：モックの送信先</h2>
+        <p class="p-mock__note">元サイトには無い、動作確認のための部品です。送信したときの応答を切り替えられます。</p>
+        <label class="c-form-field__label" for="mock-mode">次の送信への応答</label>
+        <select id="mock-mode" class="c-form-field__control js-mock-mode">
+          <option value="success">受け付ける（入力に不備があればエラーを返す）</option>
+          <option value="close-job">受け付ける直前に、選んだ職種を募集終了にする</option>
+          <option value="server-error">送信先のエラー（HTTP 500）</option>
+          <option value="timeout">受け付けたが応答が返らない（タイムアウト）</option>
+        </select>
+        <dl class="p-mock__receipts">
+          <dt>受け付けた件数</dt>
+          <dd class="js-mock-count">0</dd>
+          <dt>最後に受け付けた職種 ID</dt>
+          <dd class="js-mock-last">—</dd>
+        </dl>
+      </aside>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

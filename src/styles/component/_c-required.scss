@@ -1,0 +1,13 @@
+@use 'global' as *;
+
+// 必須の印。色だけでなく「必須」の文字で伝える
+.c-required {
+  margin-left: spacing(1);
+  padding: 0 spacing(1.5);
+  border-radius: $radius;
+  background: $color-error;
+  color: $color-white;
+  font-size: rem(12);
+  font-weight: 700;
+  vertical-align: middle;
+}
