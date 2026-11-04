@@ -1,0 +1,12 @@
+@use 'sass:math';
+
+// px の値を rem に直す。rem(14) = 0.875rem（ルートの文字サイズ 16px を基準）
+// 文字サイズと余白を rem にしておくと、閲覧者がブラウザの文字サイズを変えたときに一緒に拡大される
+@function rem($px, $base: 16) {
+  @return math.div($px, $base) * 1rem;
+}
+
+// 余白は 4px 刻み。spacing(4) = rem(16) = 1rem
+@function spacing($step) {
+  @return rem($step * 4);
+}

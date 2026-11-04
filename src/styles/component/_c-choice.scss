@@ -1,0 +1,41 @@
+@use 'global' as *;
+
+// ラジオボタン 1 つ分。ネイティブの input をそのまま使い、押せる範囲をラベル全体に広げる
+.c-choice {
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+  min-height: rem($tap-size);
+  padding: spacing(2) spacing(3);
+  border: 1px solid $color-border;
+  border-radius: $radius;
+  cursor: pointer;
+
+  &:has(.c-choice__input:disabled) {
+    background: $color-surface;
+    color: $color-muted;
+    cursor: not-allowed;
+  }
+
+  &:has(.c-choice__input[aria-invalid='true']) {
+    border-color: $color-error;
+  }
+
+  &__input {
+    width: rem(18);
+    height: rem(18);
+    margin: 0;
+    accent-color: $color-accent;
+
+    @include focus-ring;
+  }
+
+  // 「募集終了」の札。色だけに頼らず文字で状態を伝える
+  &__badge {
+    margin-left: spacing(2);
+    padding: 0 spacing(1.5);
+    border: 1px solid currentColor;
+    border-radius: $radius;
+    font-size: rem(12);
+  }
+}

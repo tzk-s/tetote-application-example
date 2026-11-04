@@ -1,0 +1,46 @@
+@use 'global' as *;
+
+// 応募フォーム
+.p-entry {
+  &__notice {
+    margin-bottom: spacing(5);
+    padding: spacing(3) spacing(4);
+    border-left: 4px solid $color-error;
+    background: $color-surface;
+  }
+
+  &__notice-text {
+    margin: 0 0 spacing(2);
+  }
+
+  &__required-note {
+    margin: 0 0 spacing(4);
+    font-size: rem(14);
+  }
+
+  &__submit-error {
+    margin: 0 0 spacing(3);
+    padding: spacing(3);
+    border: 1px solid $color-error;
+    border-radius: $radius;
+    color: $color-error;
+  }
+
+  &__status {
+    margin: 0 0 spacing(3);
+    font-size: rem(14);
+  }
+
+  &__submit {
+    width: 100%;
+  }
+
+  &__complete-heading {
+    font-size: rem(20);
+
+    // 完了時にスクリプトでフォーカスを移す見出し。キーボード操作の表示は残す
+    &:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+}

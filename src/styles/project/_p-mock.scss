@@ -1,0 +1,34 @@
+@use 'global' as *;
+
+// 確認用のモック操作部品（元サイトには無い）。フォームと見分けがつくよう枠を破線にする
+.p-mock {
+  margin-top: spacing(10);
+  padding: spacing(4);
+  border: 1px dashed $color-muted;
+  border-radius: $radius-large;
+  background: $color-surface;
+
+  &__heading {
+    margin: 0 0 spacing(1);
+    font-size: rem(16);
+  }
+
+  &__note {
+    margin: 0 0 spacing(3);
+    font-size: rem(14);
+    color: $color-muted;
+  }
+
+  &__receipts {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: spacing(1) spacing(3);
+    margin: spacing(3) 0 0;
+    font-size: rem(14);
+
+    dd {
+      margin: 0;
+      font-family: ui-monospace, monospace;
+    }
+  }
+}

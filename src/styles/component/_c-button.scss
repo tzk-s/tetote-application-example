@@ -1,0 +1,27 @@
+@use 'global' as *;
+
+// どの画面でも使える最小単位のボタン。配置（余白・並び）は親の Project 側で決める。
+.c-button {
+  display: inline-block;
+  min-height: rem($tap-size);
+  padding: spacing(2.5) spacing(5);
+  border: 1px solid $color-accent;
+  border-radius: $radius;
+  background: $color-accent;
+  color: $color-white;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include focus-ring;
+
+  &--secondary {
+    background: $color-white;
+    color: $color-accent;
+  }
+
+  // 送信中（aria-disabled）。disabled は使わない（理由は src/entry/form.ts 冒頭）
+  &[aria-disabled='true'] {
+    opacity: 0.6;
+    cursor: progress;
+  }
+}

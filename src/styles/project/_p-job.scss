@@ -1,0 +1,45 @@
+@use 'global' as *;
+
+// 職種別詳細（募集要項の定義リスト）
+.p-job {
+  &__name {
+    margin: 0 0 spacing(4);
+    font-size: rem(20);
+  }
+
+  &__rows {
+    display: grid;
+    grid-template-columns: rem(112) 1fr;
+    margin: 0 0 spacing(6);
+    border-top: 1px solid $color-border;
+
+    @include mq-down {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__term,
+  &__desc {
+    margin: 0;
+    padding: spacing(3) 0;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__term {
+    font-weight: 700;
+
+    // スマートフォンでは項目名と内容を縦に並べ、間の線を消す
+    @include mq-down {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  &__line {
+    margin: 0;
+  }
+
+  &__message {
+    margin: 0 0 spacing(4);
+  }
+}

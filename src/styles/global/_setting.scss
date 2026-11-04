@@ -1,0 +1,11 @@
+$font-family: system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+$line-height: 1.6;
+
+$radius: 6px;
+$radius-large: 8px;
+
+// コンテンツの最大幅（px。rem() で変換して使う）
+$container-width: 640;
+
+// スマートフォンで押しやすい最小の高さ（px）
+$tap-size: 44;
